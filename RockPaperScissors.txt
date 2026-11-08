@@ -1,2 +1,0 @@
-#Rock Paper Scissors(Just allows you to play against the computer)
-actions=['paper', 'scissors', 'rock']
