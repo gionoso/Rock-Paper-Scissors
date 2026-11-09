@@ -28,6 +28,9 @@ computer_score = 0
 Ties = 0
 print("GAME STARTED - SCORES INITIALIZED")
 
+#Round Counter
+Round_Count=0
+
 #Main game loop
 while True:
 
@@ -52,15 +55,14 @@ while True:
         computer_score +=1
     else:
         Ties +=1
+    Round_Count +=1
 
-
+    print("Round:", Round_Count)
     print("Player Score:", player_score)
     print("Computer Score:", computer_score)
     print("Ties:", Ties)
-
-
-
     
+
     answer=input("Want to play again? Yes/No:").lower()
     if answer=="yes":
         continue
