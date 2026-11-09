@@ -58,10 +58,16 @@ while True:
     print("Computer Score:", computer_score)
     print("Ties:", Ties)
 
+
+
     
     answer=input("Want to play again? Yes/No:").lower()
-    if answer=="no":
+    if answer=="yes":
+        continue
+    elif answer=="no":
         print("Thanks for playing!!!")
-        break
+        exit()
+    else:
+        print("Invalid input. Please enter 'yes' or 'no'.")
 
 
