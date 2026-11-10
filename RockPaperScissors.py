@@ -8,13 +8,13 @@ import random
 
 #Computer choice function
 def get_computer_choice():
-    computer=random.choices(choices)
+    computer=random.choice(choices)
     return computer
 
 #Player choice function
 def get_player_choice():
     while True: 
-        player=input("rock","paper","scissors").lower()
+        player=input("Choose rock, paper, or scissors:").lower()
         if player in choices:
             return player
         else:
@@ -31,7 +31,7 @@ def determine_winner(player, computer):
          return "You win!!"
     
     else:
-        return "Computer wins!! :<"
+        return "Computer wins!!"
 
 #Initialize scores and rounds
 player_score = 0
