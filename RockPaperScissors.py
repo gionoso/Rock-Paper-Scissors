@@ -1,14 +1,26 @@
-#Rock Paper Scissors(Just allows you to play against the computer)
-#Step 1 is to prompt user for their own choice
- #".lower()" will make it easier to compare the values later on due to Python being case sensitive. Don't want code to fail due to inputting invalid vlaues such as ROCK or Rock
-#Step 2 is to prompt computer for its own choice by choosing randomly
-#Step 3 is to figure out who wins in general
-#Step 4 would be to ask player if they want to play again if yes, repeat, if no, then stop program
+#Rock Paper Scissors(Just allows you to play against the computer) 
 
-#This step is to confirm the choices that are allowed to be chosen from for the computer and also allows to catch any errors user might enter
-import random
+#Choices for computer to randomly choose from and for player to choose from
 choices=("rock", "paper", "scissors")
-#This is to establish the function used during the main game loop so that way we don't have to keep writing code repeatedly 
+
+#Import module that allows computer to randomly choose from selected list
+import random
+
+#Computer choice function
+def get_computer_choice():
+    computer=random.choices(choices)
+    return computer
+
+#Player choice function
+def get_player_choice():
+    while True: 
+        player=input("rock","paper","scissors").lower()
+        if player in choices:
+            return player
+        else:
+            print("Invalid Choice:Try Again!!")
+
+#Compare choice anc determine winner function
 def determine_winner(player, computer):
     if player==computer:
         return "It's a TIE!!"
@@ -20,38 +32,28 @@ def determine_winner(player, computer):
     
     else:
         return "Computer wins!! :<"
-    
-    
-#Initialize scores
+
+#Initialize scores and rounds
 player_score = 0
 computer_score = 0
 Ties = 0
-print("GAME STARTED - SCORES INITIALIZED")
-
-#Round Counter
 Round_Count=0
+print("GAME STARTED - SCORES INITIALIZED")
 
 #Main game loop
 while True:
+    player=get_player_choice()
+    computer=get_computer_choice()
 
-    player=input("rock, paper, or scissors:").lower()
+    print("You chose:",player)
+    print("Computer chose:",computer)
 
-    if player not in choices:
-        print("Invalid choice: Try again!")
-        continue
-    
-    computer=random.choice(choices)
-
-    print("You chose:", player)
-    print("Computer chose:", computer)
-
-
-    result=determine_winner(player, computer)
+    result=determine_winner(player,computer)
     print(result)
-
+        
     if result=="You win!!":
         player_score +=1
-    elif result=="Computer wins!! :<":
+    elif result=="Computer wins!!":
         computer_score +=1
     else:
         Ties +=1
@@ -62,7 +64,6 @@ while True:
     print("Computer Score:", computer_score)
     print("Ties:", Ties)
     
-
     answer=input("Want to play again? Yes/No:").lower()
     if answer=="yes":
         continue
