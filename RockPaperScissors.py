@@ -33,11 +33,19 @@ def determine_winner(player, computer):
     else:
         return "Computer wins!!"
 
+#Function to show scores 
+def display_scores(round_Count,player_score,computer_score,ties):
+    print("Round:", round_Count)
+    print("Player Score:", player_score)
+    print("Computer Score:", computer_score)
+    print("Ties:", ties)
+
+
 #Initialize scores and rounds
 player_score = 0
 computer_score = 0
 Ties = 0
-Round_Count=0
+round_Count=0
 print("GAME STARTED - SCORES INITIALIZED")
 
 #Main game loop
@@ -56,13 +64,11 @@ while True:
     elif result=="Computer wins!!":
         computer_score +=1
     else:
-        Ties +=1
-    Round_Count +=1
+        ties +=1
+    round_Count +=1
 
-    print("Round:", Round_Count)
-    print("Player Score:", player_score)
-    print("Computer Score:", computer_score)
-    print("Ties:", Ties)
+    Scores=display_scores(round_Count,player_score,computer_score,ties)
+    print(Scores)
     
     answer=input("Want to play again? Yes/No:").lower()
     if answer=="yes":
