@@ -1,0 +1,54 @@
+#This is a simple calculator that takes two inputs and performs calculations based on which operator is chosen
+def calculator(number1,number2,operation):
+    if operation=="+":
+        return number1+number2
+    elif operation=="-":
+       return number1-number2
+    elif operation=="*":
+        return number1*number2
+    elif operation=="/":
+        if number2==0:
+            print("Undefined")
+            return None
+        else:
+            return number1/number2
+    else:
+        print("Invalid Response")
+        return None
+    
+    
+    
+
+running=True
+while running:
+    while True:
+        try:
+            number1=float(input("Enter First Number:"))
+            break
+        except ValueError:
+            print("Invalid Input")
+    while True:
+        try:
+            number2=float(input("Enter Second Number:"))
+            break
+        except ValueError:
+            print("Invalid Input")
+
+    operation=input("Choose an operation(+,-,*,/)")
+    result=calculator(number1,number2,operation)
+    if result is None:
+        continue
+    print("Result:",result)
+    
+    while True:
+        again=input("Would You Like To Calculate Again? (Yes/No):").lower()
+        if again=="yes":
+            break
+        elif again=="no":
+            running=False
+        else:
+            print("Invalid Response. Please Try Again")
+            continue
+
+
+
